@@ -1,0 +1,20 @@
+1) INSERT INTO klasa VALUES ('5','3a');
+
+2)SELECT klasa.nazwa, AVG(uczen.Srednia_ocen) FROM klasa INNER JOIN uczen ON uczen.id_klasy = klasa.id GROUP BY klasa.nazwa;
+
+3)CREATE USER 'Dyrektor'@'localhost' IDENTIFIED BY 'dyr_123';
+
+4)GRANT ALL ON szkola.* TO 'Dyrektor'@'localhost';
+
+5)CREATE TABLE przedmiot (id_przedmiotu INT PRIMARY KEY, nazwa VARCHAR(30));
+ALTER TABLE wychowawca ADD COLUMN przedmiot INT, ADD FOREIGN KEY (przedmiot) REFERENCES przedmiot(id_przedmiotu);
+
+6)INSERT INTO przedmiot VALUES('1','matematyka'),('2','fizyka'),('3','chemia');
+
+7)UPDATE wychowawca SET przedmiot=3 WHERE id=4;
+UPDATE wychowawca SET przedmiot=4 WHERE id=3;
+UPDATE wychowawca SET przedmiot=1 WHERE id=2;
+UPDATE wychowawca SET przedmiot=2 WHERE id=1;
+
+
+mysqldump -u root -p szkola > szkola_nowa.sql
